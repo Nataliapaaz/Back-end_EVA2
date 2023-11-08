@@ -20,5 +20,6 @@ from formularioRamos import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('formularioramos/', views.renderTemplate)
+    path('formularioramos/', views.renderTemplate),
+    path('ramos/', views.ramosData)
 ]

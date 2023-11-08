@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>LISTADO DE EMPLEADOS </div>
+    {% if ramos %}
+    <table>
+        <thead>
+            <tr> 
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Carrera</th>
+                <th>Créditos</th>
+                <th>Horas</th>
+                <th>Sala</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for r in ramos %}
+                <tr> 
+                    <td scope="row">{{ r.id }}</td>
+                    <td>{{ r.nombre }}</td>
+                    <td>{{ r.descripcion }}</td>
+                    <td>{{ r.carrera }}</td>
+                    <td>{{ r.creditos }}</td>
+                    <td>{{ r.horas }}</td>
+                    <td>{{ r.sala }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <div>No hay ramos</div>
+{% endif %}
+    <div>No hay ramos</div>
+</body>
+</html>

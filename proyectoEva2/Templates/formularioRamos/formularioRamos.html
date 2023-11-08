@@ -10,7 +10,7 @@
 </head>
 <body>
     <h1>Formulario de ramos</h1>
-    <form>
+    <form method="post">
         <label>Nombre:</label>
         <br />
         <input type="text" name="nombre">
@@ -35,7 +35,10 @@
         <br />
         <input type="text" name="sala">
         <br />
-        <button>Enviar</button>
+        
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Enviar</button>
     </form>
 </body>
 </html>

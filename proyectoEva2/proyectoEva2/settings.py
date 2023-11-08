@@ -10,7 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
+import pymysql
 from pathlib import Path
+pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -76,8 +78,11 @@ WSGI_APPLICATION = 'proyectoEva2.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'formulario_ramos',
+        'USER': 'root',
+        'HOST': 'localhost',  # O la dirección de tu servidor MySQL
+        'PORT': '3306',  # El puerto de MySQL
     }
 }
 
