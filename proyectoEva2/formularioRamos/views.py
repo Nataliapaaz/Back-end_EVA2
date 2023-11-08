@@ -18,7 +18,7 @@ def formulario_ramos(request):
         form = RamosForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('index')
+            return redirect('ramos')
     else:
         form = RamosForm()
     return render(request, 'formularioRamos.html', {'form': form})

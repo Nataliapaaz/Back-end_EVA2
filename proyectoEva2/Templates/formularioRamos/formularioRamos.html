@@ -35,9 +35,8 @@
         <br />
         <input type="text" name="sala">
         <br />
-        
-            {% csrf_token %}
             {{ form.as_p }}
+            {% csrf_token %}
             <button type="submit">Enviar</button>
     </form>
 </body>

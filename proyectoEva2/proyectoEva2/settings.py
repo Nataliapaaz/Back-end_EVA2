@@ -14,6 +14,7 @@ import pymysql
 from pathlib import Path
 pymysql.install_as_MySQLdb()
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -81,8 +82,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'formulario_ramos',
         'USER': 'root',
-        'HOST': 'localhost',  # O la dirección de tu servidor MySQL
-        'PORT': '3306',  # El puerto de MySQL
+        'HOST': 'localhost',  
+        'PORT': '3306',  
     }
 }
 
