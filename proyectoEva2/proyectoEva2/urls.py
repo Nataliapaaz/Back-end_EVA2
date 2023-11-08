@@ -23,5 +23,8 @@ urlpatterns = [
     path('formularioramos/', views.renderTemplate),
     path('formulario-ramos/', views.formulario_ramos, name='formulario_ramos'),
     path('', views.home, name='home'),
-    path('ramos/', views.ramosData, name='ramosData'), 
+    path('ramos/', views.ramosData, name='ramosData'),
+    path('eliminar_ramo/<int:idRamo>/', views.eliminar_ramo, name='eliminar_ramo'),
+    path('modificar_ramo/<int:idRamo>/', views.modificar_ramos, name='modificar_ramo'),
+
 ]

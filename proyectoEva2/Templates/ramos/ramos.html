@@ -23,13 +23,19 @@
         <tbody>
             {% for r in ramos %}
                 <tr> 
-                    <td scope="row">{{ r.id }}</td>
+                    <td scope="row">{{ r.idRamo }}</td>
                     <td>{{ r.nombre }}</td>
                     <td>{{ r.descripcion }}</td>
                     <td>{{ r.carrera }}</td>
                     <td>{{ r.creditos }}</td>
                     <td>{{ r.horas }}</td>
                     <td>{{ r.sala }}</td>
+                    <td>
+                        <a href="{% url 'eliminar_ramo' r.idRamo %}">Eliminar</a>
+                    </td>
+                    <td>
+                        <a href="{% url 'modificar_ramo' r.idRamo %}">Modificar</a>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>

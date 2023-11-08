@@ -10,11 +10,11 @@ logger = logging.getLogger(__name__)
 # Create your views here.
 
 def home(request):
-    return render(request, "formularioRamos/formularioRamos.html")
+    return render(request, "index/home.html")
 
 
 def renderTemplate(request):
-    return render(request, "formularioRamos/formularioRamos.html")
+   return render(request, "formularioRamos/formularioRamos.html")
 
 def ramosData (request):
     ramos = Ramos.objects.all ()
@@ -33,3 +33,20 @@ def formulario_ramos(request):
     else:
         form = RamosForm()
     return render(request, 'formularioRamos.html', {'form': form})
+
+def eliminar_ramo(request, idRamo):
+    ramo = Ramos.objects.get(idRamo = idRamo)
+    ramo.delete()
+    return redirect('/ramos')
+
+def modificar_ramos(request, id):
+    ramo = Ramos.objects.get(id = id)
+    form = RamosForm(instance=ramo)
+    if request.method == 'POST':
+        form = RamosForm(request.POST, instance=ramo)
+        if form.is_valid():
+            form.save()
+        return home(request)
+    data = { 'form': form}
+    return render(request, 'ramos.html')
+
