@@ -10,7 +10,7 @@
 </head>
 <body>
     <h1>Formulario de ramos</h1>
-    <form method="post">
+    <form method="post" action="{% url 'formulario_ramos' %}">
         <label>Nombre:</label>
         <br />
         <input type="text" name="nombre">
@@ -25,11 +25,11 @@
         <br />
         <label>Creditos:</label>
         <br />
-        <input type="text" name="creditos">
+        <input type="number" name="creditos">
         <br />
         <label>Horas:</label>
         <br />
-        <input type="text" name="horas">
+        <input type="number" name="horas">
         <br />
         <label>Sala:</label>
         <br />
