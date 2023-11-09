@@ -22,6 +22,7 @@ def ramosData (request):
     return render (request, 'ramos/ramos.html', data)
 
 def formulario_ramos(request):
+    form = RamosForm()
     if request.method == 'POST':
         form = RamosForm(request.POST)
         if form.is_valid():
@@ -39,14 +40,14 @@ def eliminar_ramo(request, idRamo):
     ramo.delete()
     return redirect('/ramos')
 
-def modificar_ramos(request, id):
-    ramo = Ramos.objects.get(id = id)
+def modificar_ramos(request, idRamo):
+    ramo = Ramos.objects.get(idRamo=idRamo)
     form = RamosForm(instance=ramo)
     if request.method == 'POST':
         form = RamosForm(request.POST, instance=ramo)
         if form.is_valid():
             form.save()
-        return home(request)
+            return redirect('ramosData')
     data = { 'form': form}
-    return render(request, 'ramos.html')
+    return render(request, 'formularioRamos/formularioRamos.html', data)
 
