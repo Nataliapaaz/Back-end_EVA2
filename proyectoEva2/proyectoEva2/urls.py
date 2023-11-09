@@ -26,5 +26,4 @@ urlpatterns = [
     path('ramos/', views.ramosData, name='ramosData'),
     path('eliminar_ramo/<int:idRamo>/', views.eliminar_ramo, name='eliminar_ramo'),
     path('modificar_ramo/<int:idRamo>/', views.modificar_ramos, name='modificar_ramo'),
-
 ]

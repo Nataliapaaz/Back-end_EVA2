@@ -22,18 +22,15 @@ def ramosData (request):
     return render (request, 'ramos/ramos.html', data)
 
 def formulario_ramos(request):
-    form = RamosForm()
     if request.method == 'POST':
         form = RamosForm(request.POST)
         if form.is_valid():
             form.save()
-            logger.info('Formulario válido. Datos guardados en la base de datos.')
             return redirect('ramosData')
-        else:
-            logger.error('El formulario no es válido. Errores: %s', form.errors)
     else:
         form = RamosForm()
-    return render(request, 'formularioRamos.html', {'form': form})
+
+    return render(request, 'formularioRamos/formulario-ramos.html', {'form': form})
 
 def eliminar_ramo(request, idRamo):
     ramo = Ramos.objects.get(idRamo = idRamo)
