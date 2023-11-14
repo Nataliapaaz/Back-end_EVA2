@@ -3,9 +3,6 @@ from django.http import HttpResponse
 from formularioRamos.models import Ramos
 from django.shortcuts import redirect
 from .forms import RamosForm 
-import logging
-
-logger = logging.getLogger(__name__)
 
 # Create your views here.
 
@@ -30,7 +27,7 @@ def formulario_ramos(request):
     else:
         form = RamosForm()
 
-    return render(request, 'formularioRamos/formulario-ramos.html', {'form': form})
+    return render(request, 'formularioramos/formularioramos.html', {'form': form})
 
 def eliminar_ramo(request, idRamo):
     ramo = Ramos.objects.get(idRamo = idRamo)
@@ -40,11 +37,13 @@ def eliminar_ramo(request, idRamo):
 def modificar_ramos(request, idRamo):
     ramo = Ramos.objects.get(idRamo=idRamo)
     form = RamosForm(instance=ramo)
+
     if request.method == 'POST':
         form = RamosForm(request.POST, instance=ramo)
         if form.is_valid():
             form.save()
             return redirect('ramosData')
-    data = { 'form': form}
-    return render(request, 'formularioRamos/formularioRamos.html', data)
+
+    data = {'form': form, 'modo': 'modificar', 'idRamo': idRamo}
+    return render(request, 'formularioramos/formularioramosmod.html', data)
 

@@ -6,15 +6,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'CSS/formularioRamos.css'%}">
-    <title>Formulario Ramos</title>
+    <title>Formulario Profesor</title>
 </head>
 <body>
-    <h1>Formulario de ramos</h1>
-    <form method="post" action="{% url 'formularioramos' %}">
+    <h1>Formulario de Profesor</h1>
+    <form method="post" action="{% url 'formulario_profesor' %}">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="hidden" name="modo" value="{{ modo }}">
-        <input type="hidden" name="idRamo" value="{{ idRamo }}">
         <button type="submit" value="Registrar">Enviar</button>
     </form>
 </body>

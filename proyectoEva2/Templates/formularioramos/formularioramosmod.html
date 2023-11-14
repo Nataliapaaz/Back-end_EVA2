@@ -10,7 +10,7 @@
 </head>
 <body>
     <h1>Formulario de ramos</h1>
-    <form method="post" action="{% url 'formularioramos' %}">
+    <form method="post" action="{% url 'modificar_ramo' idRamo=idRamo %}">
         {% csrf_token %}
         {{ form.as_p }}
         <input type="hidden" name="modo" value="{{ modo }}">
